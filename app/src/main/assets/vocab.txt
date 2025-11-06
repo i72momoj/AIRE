@@ -1,1 +1,1 @@
-/home/javier/Documentos/CURSO 24-25/TFG/sprint4_v2/modelo/onnx/vocab.txt
+../../../../modelo/onnx/vocab.txt

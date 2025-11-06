@@ -1,0 +1,25 @@
+DESCRIPCIÓN
+-----------
+
+creacion_modelo.ipynb: Jupyter Notebook el cual contiene el proceso de generación de un modelo ajustado (fine-tuned) a partir de un modelo preentrenado para la clasificación de tokens. También permite hacer inferencias con el modelo resultante.
+
+cuantizacion.ipynb: Jupyter Notebook con los pasos para la cuantización del modelo resultante del proceso anterior una vez ha sido transformado a formato ONNX.
+
+dataset.py: conjunto de datos usado para el entrenamiento del modelo.
+
+datasetgenerator.py: script que usa frases "plantilla" y un conjunto de valores para generar decenas de miles de frases para el entrenamiento del modelo.
+
+
+CONVERSIÓN A ONNX 
+-----------------
+
+Instalamos optimum en el entorno virtual de python que estamos usando:
+
+~$ venv/bin/pip3.12 install --upgrade optimum[onnx]
+
+Convertimos el modelo en formato ONNX con el siguiente comando:
+
+~$ optimum-cli export onnx --model <ruta/modelo/fine-tuned> --task token-classification onnx/
+
+
+El modelo transformado aparecerá en la carpeta ./onnx con extensión <nombre modelo>.onnx y junto a archivos también relevantes como los tokens que usa el modelo (vocab.txt).
